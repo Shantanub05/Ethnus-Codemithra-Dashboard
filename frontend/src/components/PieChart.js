@@ -34,14 +34,7 @@ const PieChart = ({ month }) => {
         Pie Chart
       </Typography>
       {loading ? (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexGrow: 1,
-          }}
-        >
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", flexGrow: 1 }}>
           <CircularProgress />
         </Box>
       ) : (

@@ -14,10 +14,9 @@ import {
 } from "@mui/material";
 import API from "../api";
 
-const Transactions = ({ searchText, month }) => {
+const Transactions = ({ searchText, month, page, setPage }) => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const topRef = useRef(null);
 
@@ -48,7 +47,7 @@ const Transactions = ({ searchText, month }) => {
   return (
     <Box sx={{ mb: 4 }}>
       <div ref={topRef}></div>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h6" gutterBottom>
         Transactions
       </Typography>
       {loading ? (
@@ -59,18 +58,25 @@ const Transactions = ({ searchText, month }) => {
         <>
           <TableContainer
             component={Paper}
-            sx={{ mt: 2, borderRadius: "8px", boxShadow: 3 }}
+            sx={{
+              mt: 2,
+              borderRadius: "8px",
+              boxShadow: 3,
+             
+            }}
           >
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Title</TableCell>
-                  <TableCell>Price</TableCell>
-                  <TableCell>Description</TableCell>
-                  <TableCell>Category</TableCell>
-                  <TableCell>Sold</TableCell>
-                  <TableCell>Date of Sale</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>ID</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>Title</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>Price</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>Description</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>Category</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>Sold</TableCell>
+                  <TableCell sx={{ fontWeight: "bold" }}>
+                    Date of Sale
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -78,7 +84,7 @@ const Transactions = ({ searchText, month }) => {
                   <TableRow key={transaction.id}>
                     <TableCell>{transaction.id}</TableCell>
                     <TableCell>{transaction.title}</TableCell>
-                    <TableCell>{transaction.price}</TableCell>
+                    <TableCell>${transaction.price.toFixed(2)}</TableCell>
                     <TableCell>{transaction.description}</TableCell>
                     <TableCell>{transaction.category}</TableCell>
                     <TableCell>{transaction.sold ? "Yes" : "No"}</TableCell>

@@ -44,7 +44,12 @@ const CombinedData = ({ month }) => {
   }, [month]);
 
   return (
-    <Paper elevation={3} sx={{ padding: 2, borderRadius: "8px", mb: 4 }}>
+    <Paper
+      elevation={3}
+      sx={{ padding: 2, borderRadius: "8px", mb: 4, bgcolor: "#e3f2fd" }}
+    >
+      {" "}
+      
       <Typography variant="h4" gutterBottom>
         Combined Data
       </Typography>
@@ -64,8 +69,11 @@ const CombinedData = ({ month }) => {
               </Typography>
               {combinedData.transactions.map((transaction) => (
                 <Box key={transaction.id} sx={{ mb: 1 }}>
-                  <Typography variant="body1">
-                    {transaction.title} - ${transaction.price}
+                  <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                    {transaction.title} -{" "}
+                    <span style={{ color: "#1976d2" }}>
+                      ${transaction.price.toFixed(2)}
+                    </span>
                   </Typography>
                 </Box>
               ))}
@@ -91,16 +99,35 @@ const CombinedData = ({ month }) => {
                     <Typography variant="h6" gutterBottom>
                       Statistics
                     </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      Total Sale Amount: $
-                      {combinedData.statistics.totalSaleAmount}
+                    <Typography
+                      variant="body1"
+                      gutterBottom
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      Total Sale Amount:{" "}
+                      <span style={{ color: "#1976d2" }}>
+                        ${combinedData.statistics.totalSaleAmount.toFixed(2)}
+                      </span>
                     </Typography>
-                    <Typography variant="body1" gutterBottom>
-                      Sold Items Count: {combinedData.statistics.soldItemsCount}
+                    <Typography
+                      variant="body1"
+                      gutterBottom
+                      sx={{ fontWeight: "bold" }}
+                    >
+                      Sold Items Count:{" "}
+                      <span style={{ color: "#1976d2" }}>
+                        {combinedData.statistics.soldItemsCount}
+                      </span>
                     </Typography>
-                    <Typography variant="body1" gutterBottom>
+                    <Typography
+                      variant="body1"
+                      gutterBottom
+                      sx={{ fontWeight: "bold" }}
+                    >
                       Not Sold Items Count:{" "}
-                      {combinedData.statistics.notSoldItemsCount}
+                      <span style={{ color: "#d32f2f" }}>
+                        {combinedData.statistics.notSoldItemsCount}
+                      </span>
                     </Typography>
                   </Paper>
                   <Paper
@@ -135,7 +162,11 @@ const CombinedData = ({ month }) => {
               <Grid item xs={12} md={6}>
                 <Paper
                   elevation={3}
-                 sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
                   <Typography variant="h6" gutterBottom paddingLeft={2}>
                     Pie Chart

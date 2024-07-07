@@ -23,8 +23,8 @@ app.use("/api/v1/analytics", analyticsRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack); // Log the error stack trace
-  res.status(500).send(err.message); // Send the error message as the response
+  console.error(err.stack); 
+  res.status(500).send(err.message); 
 });
 
 const PORT = process.env.PORT || 5000;
