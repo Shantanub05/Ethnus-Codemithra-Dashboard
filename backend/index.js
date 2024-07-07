@@ -17,7 +17,7 @@ connectDB();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://ethnus-codemithra-dashboard-84n4dz3i0.vercel.app", 
+    origin: "https://ethnus-codemithra-dashboard-jznq1vh9q.vercel.app/",
   })
 );
 
