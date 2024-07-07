@@ -17,13 +17,13 @@ connectDB();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://ethnus-codemithra-dashboard-84n4dz3i0.vercel.app", // Replace with your Vercel domain
+    origin: "https://ethnus-codemithra-dashboard-84n4dz3i0.vercel.app", 
   })
 );
 
 // Use routes
-app.use("/api/v1/product", productRoutes);
-app.use("/api/v1/analytics", analyticsRoutes);
+app.use("/product", productRoutes);
+app.use("/analytics", analyticsRoutes);
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
